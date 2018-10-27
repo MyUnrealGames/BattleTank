@@ -32,6 +32,7 @@ public:
 	void Fire();
 		
 protected:
+	// TODO Move next 3 to aiming component
 	UTankAimingComponent* TankAimingComponent = nullptr;
 	UPROPERTY(BlueprintReadOnly)
 	UTankMovementComponent* TankMovementComponent = nullptr;
