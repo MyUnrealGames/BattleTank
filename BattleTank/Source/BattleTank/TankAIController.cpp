@@ -2,6 +2,7 @@
 
 #include "TankAIController.h"
 #include "Tank.h"
+#include "Engine/World.h"
 
 
 void ATankAIController::BeginPlay()
@@ -21,8 +22,7 @@ void ATankAIController::Tick(float DeltaSeconds)
 
 		// Aim towards the player
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
-		UE_LOG(LogTemp, Warning, TEXT("TEST"));
-		//ControlledTank->Fire(); // TODO limit firing rate
+		ControlledTank->Fire(); // TODO limit firing rate
 	}
 }
 

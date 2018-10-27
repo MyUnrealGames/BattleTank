@@ -8,17 +8,6 @@
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-
-	ATank* ControlledTank = this->GetControlledTank();
-	if (!ControlledTank)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Player Controller doens't possesing a tank!"));
-	}
-	else
-	{
-		FString NameOfTank = ControlledTank->GetName();
-		UE_LOG(LogTemp, Warning, TEXT("Player Controller possesing %s"), *NameOfTank);
-	}
 }
 
 void ATankPlayerController::Tick(float DeltaTime) {

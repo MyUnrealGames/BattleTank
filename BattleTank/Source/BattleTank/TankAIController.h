@@ -4,7 +4,6 @@
 
 #include "AIController.h"
 #include "CoreMinimal.h"
-#include "Engine/World.h"
 #include "TankAIController.generated.h"
 
 // Forward Declarations
