@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "BattleTank.h"
 #include "TankPlayerController.h"
 #include "TankAimingComponent.h"
 #include "Tank.h"

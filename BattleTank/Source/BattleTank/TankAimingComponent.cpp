@@ -1,5 +1,6 @@
 // Copyright Psyke Ltd.
 
+#include "BattleTank.h"
 #include "TankAimingComponent.h"
 #include "Engine/World.h"
 #include "Kismet/GameplayStatics.h"
@@ -61,7 +62,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 
 void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 {
-	if (!ensure(Barrel && Turret)) { return; }
+	if (!ensure(Barrel) || !ensure(Turret)) { return; }
 	// Work-out difference betweeen current barrel rotation and AimDirection
 	// Get Forward Vector is the rotation only by the x axis
 	FRotator BarrelRotator = Barrel->GetForwardVector().Rotation();

@@ -1,5 +1,6 @@
 // Copyright Psyke Ltd.
 
+#include "BattleTank.h"
 #include "TankMovementComponent.h"
 #include "TankTrack.h"
 
