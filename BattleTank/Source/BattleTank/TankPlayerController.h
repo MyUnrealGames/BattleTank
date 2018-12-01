@@ -8,7 +8,6 @@
 
 
 // Forward Declarations
-class ATank;
 class UTankAimingComponent;
 
 /**
@@ -24,11 +23,11 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
-	UFUNCTION(BlueprintCallable, Category="Setup")
-	ATank* GetControlledTank() const;
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 	void FoundAimingComponent(UTankAimingComponent* AimCompRef);
+
+	UTankAimingComponent* AimingComponent = nullptr;
 
 private:
 	// Start the tank moving the barrel so that a shot would it where

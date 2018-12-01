@@ -7,13 +7,16 @@
 #include "TankAIController.generated.h"
 
 // Forward Declarations
-class ATank;
+class UTankAimingComponent;
 
 UCLASS()
 class BATTLETANK_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
-	
+
+protected:
+	UTankAimingComponent* AimingComponent = nullptr;
+
 private:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaSeconds) override;
