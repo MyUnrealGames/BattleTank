@@ -1,7 +1,7 @@
 // Copyright Psyke Ltd.
 
-#include "BattleTank.h"
 #include "TankMovementComponent.h"
+#include "BattleTank.h"
 #include "TankTrack.h"
 
 void UTankMovementComponent::Initialise(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet)

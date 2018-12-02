@@ -1,8 +1,7 @@
 // Copyright Psyke Ltd.
 
-#include "BattleTank.h"
 #include "Tank.h"
-
+#include "BattleTank.h"
 
 // Sets default values
 ATank::ATank()
