@@ -8,7 +8,7 @@
 #include "TankBarrel.h"
 #include "TankTurret.h"
 
-// Sets default values for this component's properties
+
 UTankAimingComponent::UTankAimingComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
@@ -18,7 +18,6 @@ UTankAimingComponent::UTankAimingComponent()
 	LastFireTime = FPlatformTime::Seconds();
 }
 
-// Called every frame
 void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
