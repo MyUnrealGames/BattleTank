@@ -2,8 +2,8 @@
 
 #include "TankAIController.h"
 #include "BattleTank.h"
-#include "TankAimingComponent.h"
 #include "Engine/World.h"
+#include "TankAimingComponent.h"
 
 
 void ATankAIController::BeginPlay()
@@ -27,6 +27,11 @@ void ATankAIController::Tick(float DeltaSeconds)
 	if (!ensure(AimingComponent))
 		return;
 	AimingComponent->AimAt(PlayerTank->GetActorLocation());
-	AimingComponent->Fire(); // TODO limit firing rate
+
+	if (AimingComponent->GetFiringState() == EFiringState::Locked)
+	{
+		AimingComponent->Fire(); // TODO limit firing rate
+	}
+	
 }
 
