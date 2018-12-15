@@ -33,7 +33,7 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	
 	UFUNCTION(BlueprintCallable, Category="Setup")
-	void Initialise(UTankBarrel * BarrelToSet, UTankTurret * TurretToSet);
+	void Initialise(UTankBarrel * BarrelToSet, UTankTurret * TurretToSet, TSubclassOf<AProjectile> ProjectileBlueprintToSet);
 
 	void AimAt(FVector HitLocation);
 
@@ -43,7 +43,7 @@ public:
 	EFiringState GetFiringState() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Firing")
-	int GetAmmo() const;
+	int32 GetAmmo() const;
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
@@ -59,7 +59,6 @@ private:
 	UTankBarrel * Barrel = nullptr;
 	UTankTurret * Turret = nullptr;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
@@ -68,8 +67,11 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	double ReloadTimeInSeconds = 3;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	int32 Ammo = 3;
+
 	double LastFireTime = 0;
 
-	int Ammo = 3;
+	
 
 };

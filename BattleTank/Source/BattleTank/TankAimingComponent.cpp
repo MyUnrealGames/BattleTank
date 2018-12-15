@@ -43,15 +43,16 @@ EFiringState UTankAimingComponent::GetFiringState() const
 	return FiringState;
 }
 
-int UTankAimingComponent::GetAmmo() const
+int32 UTankAimingComponent::GetAmmo() const
 {
 	return Ammo;
 }
 
-void UTankAimingComponent::Initialise(UTankBarrel * BarrelToSet, UTankTurret * TurretToSet)
+void UTankAimingComponent::Initialise(UTankBarrel * BarrelToSet, UTankTurret * TurretToSet, TSubclassOf<AProjectile> ProjectileBlueprintToSet)
 {
 	Barrel = BarrelToSet;
 	Turret = TurretToSet;
+	ProjectileBlueprint = ProjectileBlueprintToSet;
 }
 
 void UTankAimingComponent::AimAt(FVector HitLocation)
