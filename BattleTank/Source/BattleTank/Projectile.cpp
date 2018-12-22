@@ -2,7 +2,9 @@
 #include "Projectile.h"
 #include "BattleTank.h"
 #include "Engine/StaticMesh.h"
-
+#include "Engine/World.h"
+#include "Engine/Public/TimerManager.h"
+#include "Engine/Classes/GameFramework/Actor.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -42,10 +44,20 @@ void AProjectile::LaunchProjectile(float Speed)
 	ProjectileMovement->Activate();
 }
 
+
+void AProjectile::OnTimerExpire()
+{
+	Destroy();
+}
+
 void AProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
 {
 	LaunchBlast->Deactivate();
 	ImpactBlast->Activate();
 	ExplosionForce->FireImpulse();
-	CollisionMesh->SetVisibility(false);
+
+	FTimerHandle Timer;
+	GetWorld()->GetTimerManager().SetTimer(Timer, this, &AProjectile::OnTimerExpire, DestroyDelay, false);
 }
+
+
