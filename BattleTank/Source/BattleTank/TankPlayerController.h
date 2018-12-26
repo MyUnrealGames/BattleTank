@@ -20,12 +20,17 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 	
 public:
 	virtual void BeginPlay() override;
+	
+	UFUNCTION()
+	void OnPossessedTankDeath();
+
 	virtual void Tick(float DeltaTime) override;
 
 protected:
-
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 	void FoundAimingComponent(UTankAimingComponent* AimCompRef);
+
+	void SetPawn(APawn * InPawn);
 
 	UTankAimingComponent* AimingComponent = nullptr;
 
