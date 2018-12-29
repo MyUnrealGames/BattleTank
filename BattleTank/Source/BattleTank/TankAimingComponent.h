@@ -53,7 +53,7 @@ protected:
 
 private:
 	UTankAimingComponent();
-	void MoveBarrelTowards(FVector AimDirection);
+	void MoveBarrelTowards();
 	bool IsBarrelMoving();
 
 	UTankBarrel * Barrel = nullptr;

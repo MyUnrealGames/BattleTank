@@ -77,12 +77,12 @@ void UTankAimingComponent::AimAt(FVector HitLocation)
 	if (bHaveAimSolution)
 	{
 		AimDirection = OutLaunchVelocity.GetSafeNormal();
-		MoveBarrelTowards(AimDirection);
+		MoveBarrelTowards();
 	}
 	
 }
 
-void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
+void UTankAimingComponent::MoveBarrelTowards()
 {
 	if (!ensure(Barrel)) { return; }
 	if (!ensure(Turret)) { return; }

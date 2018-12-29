@@ -18,7 +18,7 @@ void ATankAIController::SetPawn(APawn * InPawn)
 	if (InPawn)
 	{
 		auto PossessedTank = Cast<ATank>(InPawn);
-		if (!ensure(PossessedTank)) { 
+		if (!PossessedTank) { 
 			return;
 		}
 
