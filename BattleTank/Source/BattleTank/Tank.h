@@ -6,7 +6,7 @@
 
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h" // Pase new include above
-//#include "Engine/Classes/GameFramework/Actor.h"
+
 
 // Delegates
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTankDelegate);
