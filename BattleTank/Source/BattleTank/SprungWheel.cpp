@@ -28,13 +28,6 @@ void ASprungWheel::BeginPlay()
 	SetupConstraint();
 }
 
-// Called every frame
-void ASprungWheel::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
-
 void ASprungWheel::SetupConstraint()
 {
 	AActor* ParentActor = GetAttachParentActor();
@@ -44,4 +37,18 @@ void ASprungWheel::SetupConstraint()
 	MassWheelConstraint->SetConstrainedComponents(BodyRoot, NAME_None, Axle, NAME_None);
 	AxleWheelConstraint->SetConstrainedComponents(Axle, NAME_None, Wheel, NAME_None);
 }
+
+// Called every frame
+void ASprungWheel::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+}
+
+void ASprungWheel::ApplyDrivingForce(float ForceMagnitude)
+{
+	Wheel->AddForce(Axle->GetForwardVector() * ForceMagnitude);
+}
+
+
 

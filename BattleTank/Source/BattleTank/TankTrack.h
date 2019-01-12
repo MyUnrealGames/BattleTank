@@ -17,27 +17,18 @@ class BATTLETANK_API UTankTrack : public UStaticMeshComponent
 public:
 	// Sets a throttle between -1 and +1
 	UFUNCTION(BlueprintCallable, Category = "Input")
-	void SetThrottle(const float &Throttle);
+	void SetThrottle(float Throttle);
 	
 
 	// Max force per track, in Newtons
 	UPROPERTY(EditDefaultsOnly)
 	float TrackMaxDrivingForce = 40000000; // Assume 40 tonne tank, 1g acceleration
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
 private:	
 	UTankTrack();
 
-	UFUNCTION()
-	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+	TArray<class ASprungWheel*> GetWheels();
 
-	void ApplySidewaysForce();
-
-	void DriveTrack();
-
-	float CurrentThrottle = 0;
+	void DriveTrack(float CurrentThrottle);
 
 };
