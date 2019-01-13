@@ -28,14 +28,24 @@ public:
 private:
 	void SetupConstraint();
 
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
+	void ApplyForce();
+
 	// Components
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-		USphereComponent* Wheel = nullptr;
+	USphereComponent* Wheel = nullptr;
+
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-		USphereComponent* Axle = nullptr;
+	USphereComponent* Axle = nullptr;
+
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-		UPhysicsConstraintComponent* MassWheelConstraint = nullptr;
+	UPhysicsConstraintComponent* MassWheelConstraint = nullptr;
+
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-		UPhysicsConstraintComponent* AxleWheelConstraint = nullptr;
+	UPhysicsConstraintComponent* AxleWheelConstraint = nullptr;
+
+	float TotalForceMagnitudeThisFrame = 0;
 
 };
